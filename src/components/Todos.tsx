@@ -69,22 +69,32 @@
 "use client";
 import { FC, useState } from "react";
 import { todoType } from "@/types/todoType";
-import Todo from "./Todo";
+import Todo from "./todo";
 import AddTodo from "./AddTodo";
-import { addTodo, deleteTodo, editTodo, toggleTodo } from "@/actions/todoAction";
+import {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  toggleTodo,
+} from "@/actions/todoAction";
+import { addUser } from "@/actions/userAction";
+
 
 interface Props {
   todos: todoType[];
+  user: any;
 }
 
-const Todos: FC<Props> = ({ todos = [] }) => {
+const Todos: FC<Props> = ({ todos, user }) => {
   const [todoItems, setTodoItems] = useState<todoType[]>(todos);
 
   const createTodo = async (text: string) => {
+    //addUser();
+    
     const id = (todoItems.at(-1)?.id || 0) + 1;
     try {
-      await addTodo(id, text);
-      setTodoItems((prev) => [...prev, { id, text, done: false }]);
+      await addTodo(id, text, user?.id);
+      setTodoItems((prev) => [...prev, { id, text, done: false , userId:user?.id}]);
     } catch (error) {
       console.error("Failed to create todo:", error);
     }
@@ -105,7 +115,9 @@ const Todos: FC<Props> = ({ todos = [] }) => {
     try {
       await toggleTodo(id);
       setTodoItems((prev) =>
-        prev.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo))
+        prev.map((todo) =>
+          todo.id === id ? { ...todo, done: !todo.done } : todo
+        )
       );
     } catch (error) {
       console.error("Failed to toggle todo status:", error);
