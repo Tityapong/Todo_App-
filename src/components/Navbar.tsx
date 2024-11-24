@@ -4,13 +4,13 @@ import Link from "next/link";
 import {
   SignOutButton,
   UserButton,
-  useClerk,
+//   useClerk,
   useUser,
 } from "@clerk/clerk-react";
 
 export default function Navbar() {
-  const { isSignedIn, user } = useUser();
-  const { signOut } = useClerk();
+  const { isSignedIn } = useUser();
+//   const { signOut } = useClerk();
 
   return (
     <nav className="border-b h[8vh] flex items-center">

@@ -1,7 +1,7 @@
-import { getData } from "@/actions/todoAction";
-import { getAllUsers, getUser } from "@/actions/userAction";
-import AddTodo from "@/components/AddTodo";
-import Todos from "@/components/Todos";
+// import { getData } from "@/actions/todoAction";
+// import { getAllUsers, getUser } from "@/actions/userAction";
+// import AddTodo from "@/components/AddTodo";
+// import Todos from "@/components/Todos";
 
 export default async function Home() {
   //const users = await getAllUsers();
