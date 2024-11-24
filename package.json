@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.17.0",
     "@clerk/nextjs": "^6.5.0",
     "@neondatabase/serverless": "^0.10.3",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.36.4",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "svix": "^1.41.0"
   },
   "devDependencies": {
     "@types/node": "^20",
