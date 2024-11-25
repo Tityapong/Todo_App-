@@ -91,7 +91,7 @@
 
 import { FC, useState } from "react";
 import { todoType } from "@/types/todoType";
-import Todo from "./Todo";
+import Todo from "./Todo1";
 import AddTodo from "./AddTodo";
 import {
   addTodo,
